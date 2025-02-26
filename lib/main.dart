@@ -261,3 +261,17 @@ class _FadingTextAnimationState extends State<FadingTextAnimation> {
     );
   }
 }
+
+class ColorPicker extends StatefulWidget {
+  final Color pickerColor;
+  final ValueChanged<Color> onColorChanged;
+
+  const ColorPicker({
+    Key? key,
+    required this.pickerColor,
+    required this.onColorChanged,
+  }) : super(key: key);
+
+  @override
+  _ColorPickerState createState() => _ColorPickerState();
+}
