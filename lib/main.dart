@@ -275,3 +275,49 @@ class ColorPicker extends StatefulWidget {
   @override
   _ColorPickerState createState() => _ColorPickerState();
 }
+class _ColorPickerState extends State<ColorPicker> {
+  late Color _currentColor;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentColor = widget.pickerColor;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: 300,
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 4,
+          crossAxisSpacing: 5,
+          mainAxisSpacing: 5,
+        ),
+        itemCount: _colorOptions.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                _currentColor = _colorOptions[index];
+              });
+              widget.onColorChanged(_colorOptions[index]);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: _colorOptions[index],
+                border: Border.all(
+                  color: _currentColor == _colorOptions[index]
+                      ? Colors.white
+                      : Colors.transparent,
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
