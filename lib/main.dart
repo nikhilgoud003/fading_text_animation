@@ -275,6 +275,7 @@ class ColorPicker extends StatefulWidget {
   @override
   _ColorPickerState createState() => _ColorPickerState();
 }
+
 class _ColorPickerState extends State<ColorPicker> {
   late Color _currentColor;
 
@@ -321,3 +322,27 @@ class _ColorPickerState extends State<ColorPicker> {
       ),
     );
   }
+
+  final List<Color> _colorOptions = [
+    Colors.red,
+    Colors.pink,
+    Colors.purple,
+    Colors.deepPurple,
+    Colors.indigo,
+    Colors.blue,
+    Colors.lightBlue,
+    Colors.cyan,
+    Colors.teal,
+    Colors.green,
+    Colors.lightGreen,
+    Colors.lime,
+    Colors.yellow,
+    Colors.amber,
+    Colors.orange,
+    Colors.deepOrange,
+    Colors.brown,
+    Colors.grey,
+    Colors.blueGrey,
+    Colors.black,
+  ];
+}
